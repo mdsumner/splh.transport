@@ -1,0 +1,67 @@
+name: refresh
+
+on:
+  schedule:
+    - cron: "17 18 * * 1"   # weekly, Mon 18:17 UTC (Tue early morning in Hobart)
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild even if upstream is unchanged"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # upload release assets
+  actions: write    # keep the schedule from being auto-disabled
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+env:
+  TAG: latest
+  OUT: LIST_TRANSPORT_SEGMENTS.parquet
+  GDAL_IMAGE: ghcr.io/osgeo/gdal:ubuntu-full-3.13.3
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Probe upstream
+        id: probe
+        run: |
+          scripts/probe.sh > manifest.tsv
+          gh release download "$TAG" -p manifest.tsv -O old-manifest.tsv 2>/dev/null || : > old-manifest.tsv
+          if cmp -s manifest.tsv old-manifest.tsv; then
+            echo "Upstream unchanged." | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            { echo "Upstream changed:"; echo '```'; diff old-manifest.tsv manifest.tsv || true; echo '```'; } | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        if: steps.probe.outputs.changed == 'true' || inputs.force
+        run: |
+          docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/w" -w /w "$GDAL_IMAGE" \
+            bash scripts/build.sh work "$OUT"
+          ls -l "$OUT"
+
+      - name: Publish to release
+        if: steps.probe.outputs.changed == 'true' || inputs.force
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title latest --notes "Cached LIST transport segments"
+          # manifest last, so it only claims freshness once the parquet is up
+          gh release upload "$TAG" "$OUT" --clobber
+          gh release upload "$TAG" manifest.tsv --clobber
+          gh release edit "$TAG" --notes "Cached LIST transport segments (all Tasmanian municipalities). Built $(date -u +%FT%TZ) from upstream state in manifest.tsv."
+
+      # GitHub disables scheduled workflows after 60 days without repo activity;
+      # re-enabling via the API keeps it alive without needing commits.
+      - name: Keep schedule alive
+        if: always()
+        run: gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/refresh.yml/enable" || true

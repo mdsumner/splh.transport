@@ -6,3 +6,6 @@
 .quarto
 *.parquet
 GTFS_260825_Tasmania.zip
+work/
+manifest.tsv
+old-manifest.tsv

@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Probe upstream
         id: probe
@@ -59,6 +59,12 @@ jobs:
           gh release upload "$TAG" "$OUT" --clobber
           gh release upload "$TAG" manifest.tsv --clobber
           gh release edit "$TAG" --notes "Cached LIST transport segments (all Tasmanian municipalities). Built $(date -u +%FT%TZ) from upstream state in manifest.tsv."
+
+      # Canary: the remote-only recipes should still resolve against upstream.
+      - name: Check recipes still open
+        run: |
+          docker run --rm -v "$PWD:/w" -w /w "$GDAL_IMAGE" \
+            ogrinfo -ro -so recipes/LIST_TRANSPORT_SEGMENTS.vrt LIST_TRANSPORT_SEGMENTS | grep -E 'Feature Count'
 
       # GitHub disables scheduled workflows after 60 days without repo activity;
       # re-enabling via the API keeps it alive without needing commits.

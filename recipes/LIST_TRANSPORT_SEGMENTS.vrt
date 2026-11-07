@@ -1,0 +1,121 @@
+<OGRVRTDataSource>
+  <OGRVRTUnionLayer name="LIST_TRANSPORT_SEGMENTS">
+    <SourceLayerFieldName>municipality</SourceLayerFieldName>
+    <OGRVRTLayer name="BREAK_O_DAY">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_BREAK_O_DAY.zip/list_transport_segments_break_o_day.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_break_o_day</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="BRIGHTON">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_BRIGHTON.zip/list_transport_segments_brighton.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_brighton</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="BURNIE">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_BURNIE.zip/list_transport_segments_burnie.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_burnie</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="CENTRAL_COAST">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_CENTRAL_COAST.zip/list_transport_segments_central_coast.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_central_coast</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="CENTRAL_HIGHLANDS">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_CENTRAL_HIGHLANDS.zip/list_transport_segments_central_highlands.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_central_highlands</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="CIRCULAR_HEAD">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_CIRCULAR_HEAD.zip/list_transport_segments_circular_head.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_circular_head</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="CLARENCE">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_CLARENCE.zip/list_transport_segments_clarence.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_clarence</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="DERWENT_VALLEY">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_DERWENT_VALLEY.zip/list_transport_segments_derwent_valley.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_derwent_valley</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="DEVONPORT">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_DEVONPORT.zip/list_transport_segments_devonport.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_devonport</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="DORSET">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_DORSET.zip/list_transport_segments_dorset.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_dorset</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="FLINDERS">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_FLINDERS.zip/list_transport_segments_flinders.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_flinders</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="GEORGE_TOWN">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_GEORGE_TOWN.zip/list_transport_segments_george_town.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_george_town</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="GLAMORGAN_SPRING_BAY">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_GLAMORGAN_SPRING_BAY.zip/list_transport_segments_glamorgan_spring_bay.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_glamorgan_spring_bay</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="GLENORCHY">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_GLENORCHY.zip/list_transport_segments_glenorchy.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_glenorchy</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="HOBART">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_HOBART.zip/list_transport_segments_hobart.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_hobart</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="HUON_VALLEY">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_HUON_VALLEY.zip/list_transport_segments_huon_valley.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_huon_valley</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="KENTISH">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_KENTISH.zip/list_transport_segments_kentish.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_kentish</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="KING_ISLAND">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_KING_ISLAND.zip/list_transport_segments_king_island.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_king_island</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="KINGBOROUGH">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_KINGBOROUGH.zip/list_transport_segments_kingborough.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_kingborough</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="LATROBE">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_LATROBE.zip/list_transport_segments_latrobe.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_latrobe</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="LAUNCESTON">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_LAUNCESTON.zip/list_transport_segments_launceston.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_launceston</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="MEANDER_VALLEY">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_MEANDER_VALLEY.zip/list_transport_segments_meander_valley.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_meander_valley</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="NORTHERN_MIDLANDS">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_NORTHERN_MIDLANDS.zip/list_transport_segments_northern_midlands.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_northern_midlands</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="SORELL">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_SORELL.zip/list_transport_segments_sorell.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_sorell</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="SOUTHERN_MIDLANDS">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_SOUTHERN_MIDLANDS.zip/list_transport_segments_southern_midlands.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_southern_midlands</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="TASMAN">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_TASMAN.zip/list_transport_segments_tasman.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_tasman</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="WARATAH_WYNYARD">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_WARATAH_WYNYARD.zip/list_transport_segments_waratah_wynyard.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_waratah_wynyard</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="WEST_COAST">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_WEST_COAST.zip/list_transport_segments_west_coast.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_west_coast</SrcLayer>
+    </OGRVRTLayer>
+    <OGRVRTLayer name="WEST_TAMAR">
+      <SrcDataSource>/vsizip//vsicurl/https://listdata.thelist.tas.gov.au/opendata/data/LIST_TRANSPORT_SEGMENTS_WEST_TAMAR.zip/list_transport_segments_west_tamar.gdb</SrcDataSource>
+      <SrcLayer>list_transport_segments_west_tamar</SrcLayer>
+    </OGRVRTLayer>
+  </OGRVRTUnionLayer>
+</OGRVRTDataSource>

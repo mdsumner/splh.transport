@@ -21,6 +21,9 @@ for (i in seq_along(munips)) {
   alg$run()
 
   alg$release()
+  x <- terra::vect(outf)
+  x$municipality <- munips[i]
+  terra::writeVector(x, outf, overwrite = TRUE, file)
   delete_after <- c(delete_after, outf)
 }
 

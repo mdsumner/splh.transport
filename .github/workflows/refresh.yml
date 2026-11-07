@@ -64,7 +64,7 @@ jobs:
       - name: Check recipes still open
         run: |
           docker run --rm -v "$PWD:/w" -w /w "$GDAL_IMAGE" \
-            ogrinfo -ro -so recipes/LIST_TRANSPORT_SEGMENTS.vrt LIST_TRANSPORT_SEGMENTS | grep -E 'Feature Count'
+            gdal vector info recipes/LIST_TRANSPORT_SEGMENTS.vrt | grep -E 'Feature Count'
 
       # GitHub disables scheduled workflows after 60 days without repo activity;
       # re-enabling via the API keeps it alive without needing commits.

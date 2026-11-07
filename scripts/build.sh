@@ -20,10 +20,9 @@ while read -r m; do
   rm -f "$zip"
   gdal vsi copy "/vsicurl/$base/LIST_TRANSPORT_SEGMENTS_${m}.zip" "$zip"
   # add a municipality column
-  ogr2ogr -f Parquet -overwrite "$part" \
-    "/vsizip/${zip}/list_transport_segments_${lc}.gdb" \
-    -sql "SELECT *, '${m}' AS municipality FROM list_transport_segments_${lc}" \
-    -nln list_transport_segments
+  gdal vector sql --overwrite --of Parquet \
+    --sql "SELECT *, '${m}' AS municipality FROM list_transport_segments_${lc}" \
+    "/vsizip/${zip}/list_transport_segments_${lc}.gdb" "$part"
   rm -f "$zip"
   parts+=("$part")
 done < "$here/municipalities.txt"
@@ -37,8 +36,8 @@ rm -f "${parts[@]}"
 # sanity check: every municipality present, nothing empty
 layer="$(basename "$out" .parquet)"
 expected="$(grep -c . "$here/municipalities.txt")"
-got="$(ogrinfo -q "$out" -dialect sqlite \
-  -sql "SELECT count(DISTINCT municipality) AS n FROM \"$layer\"" | awk -F' = ' '/n \(Integer\)/ {print $2}')"
+got="$(gdal vector info --features --dialect SQLITE \
+  --sql "SELECT count(DISTINCT municipality) AS n FROM \"$layer\"" "$out" | awk -F' = ' '/n \(Integer\)/ {print $2}')"
 echo "municipalities: $got / $expected" >&2
 [ "$got" = "$expected" ] || { echo "municipality count mismatch" >&2; exit 1; }
-ogrinfo -so "$out" "$layer" | grep -E 'Feature Count|Geometry' >&2
+gdal vector info "$out" | grep -E 'Feature Count|Geometry' >&2

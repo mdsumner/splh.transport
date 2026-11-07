@@ -6,7 +6,7 @@ for all 29 Tasmanian municipalities, as GeoParquet (ZSTD), with a `municipality`
 Download: <https://github.com/mdsumner/splh.transport/releases/download/latest/LIST_TRANSPORT_SEGMENTS.parquet>
 
 ```
-ogrinfo -so /vsicurl/https://github.com/mdsumner/splh.transport/releases/download/latest/LIST_TRANSPORT_SEGMENTS.parquet LIST_TRANSPORT_SEGMENTS
+gdal vector info /vsicurl/https://github.com/mdsumner/splh.transport/releases/download/latest/LIST_TRANSPORT_SEGMENTS.parquet
 ```
 
 ## Three ways to the same layer
@@ -29,9 +29,9 @@ which is the cost the cache avoids. Open them from a clone, or straight from Git
 ```sh
 R=https://raw.githubusercontent.com/mdsumner/splh.transport/main/recipes
 
-ogrinfo -ro -so /vsicurl/$R/LIST_TRANSPORT_SEGMENTS.vrt LIST_TRANSPORT_SEGMENTS
+gdal vector info /vsicurl/$R/LIST_TRANSPORT_SEGMENTS.vrt
 # subset on the fly, write whatever you like
-ogr2ogr -where "municipality = 'HOBART'" hobart.gpkg /vsicurl/$R/LIST_TRANSPORT_SEGMENTS.vrt
+gdal vector filter --where "municipality = 'HOBART'" /vsicurl/$R/LIST_TRANSPORT_SEGMENTS.vrt hobart.gpkg
 # or materialise the pipeline (this is the cache, in one line)
 gdal vector convert /vsicurl/$R/LIST_TRANSPORT_SEGMENTS.gdalg.json statewide.parquet
 ```
